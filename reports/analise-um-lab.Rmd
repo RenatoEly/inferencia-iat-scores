@@ -5,7 +5,7 @@ output:
     df_print: paged
 theme: sandstone
 params: 
-    arquivo_dados: "data/sdsu .csv"
+    arquivo_dados: "data/help .csv"
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -14,6 +14,7 @@ library(broom)
 library(ggbeeswarm)
 library(gridExtra)
 theme_set(theme_bw())
+
 
 knitr::opts_chunk$set(tidy = FALSE,
                       fig.width = 6,
@@ -144,14 +145,12 @@ grid.arrange(p1, p2, ncol = 2)
 
 ```
 
+```{r}
+iat %>% group_by(sex) %>% 
+    summarise(sd = sd(d_art), N=n())
+```
+
+
 ### Conclusão
 
-Em média, as mulheres que participaram do experimento tiveram uma associação implícita (medida pelo IAT) com a matemárica **positiva/negativa** e **fraca/média/forte** (média XXX, desv. padrão YYY, N = ZZZ). Homens tiveram uma associação **positiva/negativa** com a matemática, portanto **maior/menor** que a das mulheres (média , desv. padrão, N = ). Houve portanto uma **grande/considerável/pequena** diferença entre homens e mulheres (diferença das médias XXXX, 95% CI [CCC, DDD]). A partir desta amostra, estimamos que...
-
---- 
-*Exemplos de possíveis conclusões para completar*
-
-  * mulheres têm uma associação negativa consideravelmente mais forte, com uma diferença que provavelmente está entre 0.6 e 1.0 ponto na escala IAT, o suficiente para diferenciar uma associação neutra de uma muito forte contra a matemática.
-  * mulheres têm uma associação negativa mais forte, porém não é claro se essa diferença é grande, moderada ou pequena. É necessário coletar mais dados para determinar se a diferença é relevante ou negligenciável. 
-  * mulheres podem ter um associação negativa forte, pode não haver diferença entre sexos ou homens podem ter atitudes negativas um pouco mais fortes ou moderadamente mais fortes. 
-  * pode não haver uma diferença entre sexos, ou se ela existir, ela provavelmente é pequena em qualquer das direções. 
+Em média, as mulheres que participaram do experimento tiveram uma aversão implícita (medida pelo IAT) com a matemática positiva e média (média = 0.34, desv. padrão = 0.43, N = 69). Homens tiveram uma aversão positiva com a matemática, embora menor que a das mulheres (média = 0.25, desv. padrão = 0.44, N = 28). Não houve portanto uma diferença significativa entre homens e mulheres (diferença das médias -0.08, 95% CI [-0.28, 0.12]). A partir desta amostra, não há diferença entre homens e mulheres, ou a diferença é pequena para um dos lados.
